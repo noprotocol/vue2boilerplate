@@ -43,7 +43,8 @@ var webpackConfig = {
     ],
     babel: {
         presets: [
-            "es2015"
+            ['es2015'],
+            'stage-1'
         ],
         plugins: [
             "transform-vue-jsx"

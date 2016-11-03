@@ -1,18 +1,16 @@
 import Vue from 'vue'
-import CounterReactStyle from './components/CounterReactStyle'
-import CounterVueStyle from './components/CounterVueStyle'
 
-Vue.component('counter-vue-style', CounterVueStyle)
+import router from './router'
+import store from './store'
 
-new Vue({
-    el: document.querySelector('my-app'),
-    render(h) {
-        return <div>
-            <CounterReactStyle label="Reacty" />
-            <counter-vue-style label="Vuey" />
-        </div>
-    }
+import App from './App.vue'
+const app = new Vue({
+    router,
+    store,
+    ...App
 })
+
+app.$mount('my-app')
 
 if (INJECT_WEBPACK_DEV_SERVER_SCRIPT && location.hostname === 'localhost') {
     const s = document.createElement('script')

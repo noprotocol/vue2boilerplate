@@ -1,32 +1,28 @@
 <template>
     <div>
-        <h1>{{label}}: {{count}}</h1>
+        <h1>count: {{ $store.state.count }}</h1>
         <button class="button" @click="increment">+</button>
     </div>
 </template>
 
 <style scoped lang="sass">
-.button {
-    display: flex; /* autoprefix test */
-    background: linear-gradient(to bottom, white, lightblue);
+    .button {
+        display: flex; /* autoprefix test */
+        background: linear-gradient(to bottom, white, lightblue);
 
-    &:hover { /* sass test */
-        opacity: 0.6;
+        &:hover { /* sass test */
+            opacity: 0.6;
+        }
     }
-}
 </style>
 
 <script>
-const CounterVueStyle = {
-    props: ['label'],
-    data: () => ({
-        count: 0
-    }),
-    methods: {
-        increment() {
-            this.count++
-        }
+    export default {
+        methods: {
+            increment() {
+                this.$store.dispatch('INCREMENT_COUNTER')
+            }
+        },
+        name: 'counter'
     }
-}
-export default CounterVueStyle
 </script>

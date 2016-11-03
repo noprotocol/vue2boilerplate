@@ -1,7 +1,7 @@
 {
   "name": "vue2minimal",
   "version": "0.0.1",
-  "description": "",
+  "description": "Vue2 starter for NoProtocol projects",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev-hot-reloading",
@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.2",
@@ -27,9 +27,14 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "vue": "^2.0.3",
-    "vue-loader": "^9.7.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "babel-preset-stage-1": "^6.16.0",
+    "vue": "^2.0.3",
+    "vue-loader": "^9.7.0",
+    "vue-router": "^2.0.1",
+    "vuex": "^2.0.0"
   }
 }
