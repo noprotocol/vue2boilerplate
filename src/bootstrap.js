@@ -1,14 +1,22 @@
 import Vue from 'vue'
-import Counter1 from './components/Counter1'
-import Counter2 from './components/Counter2'
+import CounterReactStyle from './components/CounterReactStyle'
+import CounterVueStyle from './components/CounterVueStyle'
+
+Vue.component('counter-vue-style', CounterVueStyle)
 
 new Vue({
     el: document.querySelector('my-app'),
     render(h) {
         return <div>
-            <Counter1 label="Counter1" />
-            <Counter2 label="Counter2" />
+            <CounterReactStyle label="Reacty" />
+            <counter-vue-style label="Vuey" />
         </div>
     }
 })
-            
+
+if (INJECT_WEBPACK_DEV_SERVER_SCRIPT && location.hostname === 'localhost') {
+    const s = document.createElement('script')
+    s.async = true
+    s.src = 'http://localhost:8080/webpack-dev-server.js'
+    document.head.appendChild(s)
+}

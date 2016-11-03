@@ -6,16 +6,7 @@
   </head>
   <body>
     <my-app></my-app>
-    <script>
-        (function (l, d) {
-            if (l.hostname === 'localhost') {
-                const s = d.createElement('script')
-                s.src = 'http://localhost:8080/webpack-dev-server.js'
-                document.body.insertBefore(s, document.currentScript)
-            }
-        })(location, document)
-    </script>
-    <script src="build/vendor.js"></script>
+    <script src="build/common.js"></script>
     <script src="build/app.js"></script>
   </body>
 </html>

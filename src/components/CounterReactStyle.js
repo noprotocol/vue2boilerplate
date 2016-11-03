@@ -1,5 +1,6 @@
+import "./CounterBemStyle.scss"
 
-const Counter = {
+const CounterReactStyle = {
     props: ['label'],
     data: () => ({
         count: 0
@@ -8,7 +9,7 @@ const Counter = {
         const {label, count, increment} = this
         return <div>
             <h1>{label}: {count}</h1>
-            <button on-click={increment}>+</button>
+            <button class="counter_button" on-click={increment}>+</button>
         </div>
     },
     methods: {
@@ -19,4 +20,4 @@ const Counter = {
 
 }
 
-export default Counter
+export default CounterReactStyle
