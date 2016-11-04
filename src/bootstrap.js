@@ -3,7 +3,6 @@ import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
-// sync(store, router)
 
 import App from './App.vue'
 const app = new Vue({
@@ -12,6 +11,7 @@ const app = new Vue({
     ...App
 })
 
+sync(store, router)
 app.$mount('my-app')
 
 if (INJECT_WEBPACK_DEV_SERVER_SCRIPT && location.hostname === 'localhost') {
