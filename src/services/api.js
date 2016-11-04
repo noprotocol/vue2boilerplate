@@ -1,8 +1,8 @@
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable'
 const API_PATH = 'https://jsonplaceholder.typicode.com/'
 
 const api = {
-    get(path) {
+    get (path) {
         return Observable.ajax(API_PATH + path).map(res => res.response)
     }
 }
@@ -10,4 +10,4 @@ const api = {
 api.users$ = api.get('users')
 api.posts$ = api.get('posts')
 
-export default api;
+export default api

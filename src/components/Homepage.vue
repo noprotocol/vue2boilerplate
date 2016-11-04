@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import "./Homepage.scss"
-    import api from "../services/api"
+    import './Homepage.scss'
+    import api from '../services/api'
 
     export default {
         name: 'Homepage',

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueRx from 'vue-rx'
-import {Observable} from "rxjs/Observable"
-import {Subscription} from "rxjs/Subscription"
+import {Observable} from 'rxjs/Observable'
+import {Subscription} from 'rxjs/Subscription'
 
 Vue.use(VueRx, {Observable, Subscription})
 
