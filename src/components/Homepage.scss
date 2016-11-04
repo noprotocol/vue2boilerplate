@@ -1,0 +1,9 @@
+.homepage {
+    background: #eeeeee;
+}
+.homepage_user {
+    border-top: 1px solid #dddddd;
+    &:first-child {
+        border-top: none;
+    }
+}

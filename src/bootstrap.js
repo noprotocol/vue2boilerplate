@@ -1,20 +1,19 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
+import VueRouter from 'vue-router'
+import VueRx from 'vue-rx'
+import {Observable} from "rxjs/Observable"
+import {Subscription} from "rxjs/Subscription"
 
-import { sync } from 'vuex-router-sync'
-import router from './router'
-import store from './store'
+Vue.use(VueRx, {Observable, Subscription})
 
-import App from './App.vue'
-const app = new Vue({
-    router,
-    store,
-    ...App
-})
+import App from './components/App'
 
-sync(store, router)
+const app = new Vue(App)
 app.$mount('my-app')
 
 if (INJECT_WEBPACK_DEV_SERVER_SCRIPT && location.hostname === 'localhost') {
+    // Inject th livereload script it's not embedded into the bundle
     const s = document.createElement('script')
     s.async = true
     s.src = 'http://localhost:8080/webpack-dev-server.js'
