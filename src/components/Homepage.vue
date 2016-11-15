@@ -13,9 +13,9 @@
 
     export default {
         name: 'Homepage',
-        data: () => ({
+        subscriptions: {
             users: api.users$.startWith([])
-        }),
+        },
         methods: {
             hide(user) {
                 console.log(user)
