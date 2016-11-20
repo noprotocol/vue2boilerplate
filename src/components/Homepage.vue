@@ -8,6 +8,6 @@
     import './Homepage.scss'
 
     export default {
-        name: 'Homepage',
+        name: 'Homepage'
     }
 </script>

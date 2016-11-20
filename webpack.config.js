@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var IS_PRODUCTION = (process.argv.indexOf('-p') !== -1)
 
 var config = {
-    devtool: IS_PRODUCTION ? 'source-map' : 'eval-source-map',
+    devtool: IS_PRODUCTION ? 'source-map' : 'cheap-module-eval-source-map',
     entry: {
         app: './src/bootstrap.js',
         common: './src/common.js',
