@@ -1,9 +1,11 @@
 .homepage {
-    background: #eeeeee;
-}
-.homepage_user {
-    border-top: 1px solid #dddddd;
-    &:first-child {
-        border-top: none;
-    }
+    border: 30px double #4fc08d;
+    color: #2c3e50;
+    font: 18px sans-serif;
+    margin: 30px;
+    text-align: center;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

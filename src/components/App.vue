@@ -1,15 +1,14 @@
 <template>
-    <span>
-        <h1>Vue2 Boilerplate</h1>
-        <router-view></router-view>
-    </span>
+    <router-view></router-view>
 </template>
 
 <script>
 
 import { sync } from 'vuex-router-sync'
-import router from '../router'
-import store from '../store'
+import store from '../services/store'
+import router from '../services/router'
+
+sync(store, router) 
 
 export default {
     name: 'App',

@@ -1,0 +1,8 @@
+sudo: false
+language: node_js
+node_js: 
+    - 6
+
+# Not really a testsuite, but if running `npm deploy` without errors is something 
+script: 
+    - npm deploy
