@@ -3,6 +3,6 @@ language: node_js
 node_js: 
     - 6
 
-# Not really a testsuite, but if running `npm deploy` without errors is something 
+# Not really a testsuite, but running `deploy` without errors is something. 
 script: 
-    - npm deploy
+    - npm run deploy
