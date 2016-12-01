@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <title>Vue 2 Boilerplate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
 <!-- For the blade template
+    <base href=" {{url('/') }}">
     @if (App::environment('development') == false)
     <link rel="stylesheet" href="{{asset('build/style.css')}}">
     @endif
@@ -16,6 +18,15 @@
     <app></app>
     <script src="build/common.js"></script>
     <script src="build/app.js"></script>
+<!-- For the blade template
+@if (App::environment('development'))
+        <script src="http://{{ (!isset($_SERVER['SERVER_ADDR']) || $_SERVER['SERVER_ADDR'] === '::1') ? 'localhost' : $_SERVER['SERVER_ADDR'] }}:8080/build/common.js"></script>
+        <script src="http://{{ (!isset($_SERVER['SERVER_ADDR']) || $_SERVER['SERVER_ADDR'] === '::1') ? 'localhost' : $_SERVER['SERVER_ADDR'] }}:8080/build/app.js"></script>
+    @else
+        <script src="build/common.js"></script>
+        <script src="build/app.js"></script>
+    @endif
+-->
 </body>
 
 </html>

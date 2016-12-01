@@ -73,12 +73,21 @@ if (IS_PRODUCTION) {
     });
 }
 config.module.loaders.push({
-    test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf)$/, // css resources
+    test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eof)$/, // css resources
     loader: IS_PRODUCTION ? "file" : "url"
 })
 // 
 // Webpack Dev Server
 //
+config.devServer = {
+    stats: {
+        chunks: false,
+        version: false,
+        assets: false,
+        hash: false,
+        color: true,
+    }
+}
 config.plugins.push(new webpack.DefinePlugin({
     INJECT_WEBPACK_DEV_SERVER_SCRIPT: (process.argv[1].match(/webpack-dev-server$/) !== null) && (process.argv.indexOf('--inline') === -1),
     IS_PRODUCTION: IS_PRODUCTION

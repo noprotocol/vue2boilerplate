@@ -1,18 +1,18 @@
 {
   "name": "vue2boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue2 starter for NoProtocol projects",
   "scripts": {
     "start": "npm run dev-hot-reloading",
     "dev-hot-reloading": "webpack-dev-server -d --inline --hot --history-api-fallback --content-base public --host 0.0.0.0",
     "dev-fast-recompile": "webpack-dev-server -d --history-api-fallback --content-base public --host 0.0.0.0",
-    "deploy": "webpack -p"
+    "deploy": "webpack -p --progress"
   },
   "dependencies": {
     "rxjs": "^5.0.0-rc.1",
     "vue": "^2.0.3",
     "vue-router": "^2.0.1",
-    "vue-rx": "2.1.2",
+    "vue-rx": "^2.2.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0"
   },
@@ -33,7 +33,8 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "vue-loader": "^9.7.0",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.3",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   }

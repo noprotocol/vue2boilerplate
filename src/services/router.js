@@ -4,11 +4,15 @@ import routes from '../routes'
 
 Vue.use(VueRouter)
 
+// Use <base>
+var base = document.getElementsByTagName('base')[0].href;
+let match = base.match(/^https?:\/\/[^\/]+\//)
+if (match !== null) {
+    base = base.substr(match[0].length - 1);
+}
 const router = new VueRouter({
     mode: 'history',
-    base: __dirname,
-    transitionOnLoad: true,
-    linkActiveClass: 'active',
+    base: base, 
     routes: routes
 })
 
