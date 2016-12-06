@@ -3,6 +3,9 @@ var autoprefixer = require('autoprefixer')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var IS_PRODUCTION = (process.argv.indexOf('-p') !== -1)
+if (typeof process.env.NODE_ENV === 'undefined') {
+    process.env.NODE_ENV = IS_PRODUCTION ? 'production' : 'development'
+}
 
 var config = {
     devtool: IS_PRODUCTION ? 'source-map' : 'cheap-module-eval-source-map',
@@ -90,7 +93,8 @@ config.devServer = {
 }
 config.plugins.push(new webpack.DefinePlugin({
     INJECT_WEBPACK_DEV_SERVER_SCRIPT: (process.argv[1].match(/webpack-dev-server$/) !== null) && (process.argv.indexOf('--inline') === -1),
-    IS_PRODUCTION: IS_PRODUCTION
+    IS_PRODUCTION: IS_PRODUCTION,
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 }))
 
 //

@@ -1,4 +1,5 @@
-// Import vendor scripts and here to speed up compilation.
+import 'babel-polyfill' // IE11 compatibility
+// Import vendor scripts here to speed up compilation.
 import 'vue'
 import 'vue-router'
 import 'vuex'
