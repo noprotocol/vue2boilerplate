@@ -1,6 +1,6 @@
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var IS_PRODUCTION = (process.argv.indexOf('-p') !== -1)
 if (typeof process.env.NODE_ENV === 'undefined') {
@@ -58,6 +58,7 @@ config.postcss = [
 config.vue = {
     postcss: config.postcss
 }
+// Postprocces the scss files with postcss 
 var styleLoaders = ['css?sourceMap', 'postcss', 'sass?sourceMap']
 if (IS_PRODUCTION) {
     // Extract css intro a style.css file
@@ -68,15 +69,26 @@ if (IS_PRODUCTION) {
         include: __dirname + '/src',
         loader: extractCss.extract('style', styleLoaders)
     })
+    
+    config.module.loaders.push({
+        test: /\.css$/,
+        exclude: __dirname + '/src',
+        loader: extractCss.extract('style', ['css'])
+    })
 } else {
     config.module.loaders.push({
         test: /\.scss$/,
         include: __dirname + '/src',
         loaders: ['style'].concat(styleLoaders)
-    });
+    })
+    config.module.loaders.push({
+        test: /\.css$/,
+        exclude: __dirname + '/src',
+        loaders: ['style', 'css']
+    })
 }
 config.module.loaders.push({
-    test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eof)$/, // css resources
+    test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$/, // css resources
     loader: IS_PRODUCTION ? "file" : "url"
 })
 // 
