@@ -28,11 +28,11 @@ var config = {
 //
 config.babel = {
     presets: [
-        ['es2015'],
-        'stage-1'
+        ['es2015']
     ],
     plugins: [
-        "transform-vue-jsx"
+        'transform-vue-jsx',
+        'babel-plugin-transform-object-rest-spread'
     ]
 }
 config.resolve = {
@@ -89,7 +89,7 @@ if (IS_PRODUCTION) {
 }
 config.module.loaders.push({
     test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$/, // css resources
-    loader: IS_PRODUCTION ? "file" : "url"
+    loader: IS_PRODUCTION ? 'file' : 'url'
 })
 // 
 // Webpack Dev Server
@@ -112,7 +112,7 @@ config.plugins.push(new webpack.DefinePlugin({
 //
 // Other
 //
-config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: "common" }))
+config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: 'common' }))
 
 
 module.exports = config
