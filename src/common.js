@@ -10,6 +10,11 @@ import 'rxjs/Subscription'
 import 'rxjs/add/observable/dom/ajax'
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/toPromise'
+import Promise from 'promise-polyfill'; 
+
+if (!window.Promise) {
+  window.Promise = Promise;
+}
 
 if (IS_PRODUCTION === false) {
     // Import styles (with large assets) that slow down the compilation. 
