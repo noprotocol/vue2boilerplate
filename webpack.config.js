@@ -55,7 +55,7 @@ config.postcss = [
 config.vue = {
     postcss: config.postcss
 }
-// Postprocces the scss files with postcss 
+// Postprocces the scss files with postcss
 var styleLoaders = ['css?sourceMap', 'postcss', 'sass?sourceMap']
 if (IS_PRODUCTION) {
     // Extract css intro a style.css file
