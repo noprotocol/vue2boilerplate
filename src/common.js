@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise'
 import Promise from 'promise-polyfill'; 
 
 if (!window.Promise) {
-  window.Promise = Promise;
+    window.Promise = Promise;
 }
 
 if (IS_PRODUCTION === false) {

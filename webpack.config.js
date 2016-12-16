@@ -23,9 +23,8 @@ var config = {
     },
     plugins: []
 }
-// 
+
 // Javascript
-//
 config.babel = {
     presets: [
         ['es2015']
@@ -49,9 +48,7 @@ config.module.loaders.push({
     include: __dirname + '/src'
 })
 
-// 
 // Styles
-//
 config.postcss = [
     autoprefixer(),
 ]
@@ -69,7 +66,7 @@ if (IS_PRODUCTION) {
         include: __dirname + '/src',
         loader: extractCss.extract('style', styleLoaders)
     })
-    
+
     config.module.loaders.push({
         test: /\.css$/,
         exclude: __dirname + '/src',
@@ -91,9 +88,8 @@ config.module.loaders.push({
     test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$/, // css resources
     loader: IS_PRODUCTION ? 'file' : 'url'
 })
-// 
+
 // Webpack Dev Server
-//
 config.devServer = {
     stats: {
         chunks: false,
@@ -109,10 +105,7 @@ config.plugins.push(new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 }))
 
-//
 // Other
-//
 config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: 'common' }))
-
 
 module.exports = config

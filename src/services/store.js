@@ -5,19 +5,19 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 
-	state: {
-	},
+    state: {
+    },
 
-	getters: {
-	},
+    getters: {
+    },
 
-	actions: {
-	},
+    actions: {
+    },
 
-	mutations: {
-	},
+    mutations: {
+    },
 
-	modules: {}
+    modules: {}
 })
 
 export default store
