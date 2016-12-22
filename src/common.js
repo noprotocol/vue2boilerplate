@@ -9,6 +9,7 @@ import 'rxjs/Observable'
 import 'rxjs/Subscription'
 import 'rxjs/add/observable/dom/ajax'
 import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
 import Promise from 'promise-polyfill'; 
 
