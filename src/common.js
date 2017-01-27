@@ -1,4 +1,4 @@
-import 'babel-polyfill' // IE11 compatibility
+import 'babel-polyfill'
 // Import vendor scripts here to speed up compilation.
 import 'vue'
 import 'vue-router'
@@ -11,13 +11,9 @@ import 'rxjs/add/observable/dom/ajax'
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
-import Promise from 'promise-polyfill'; 
 
-if (!window.Promise) {
-    window.Promise = Promise;
-}
 
 if (IS_PRODUCTION === false) {
-    // Import styles (with large assets) that slow down the compilation. 
+    // Import styles (with large assets) that slow down the compilation.
     require('./sass/main.scss')
 }

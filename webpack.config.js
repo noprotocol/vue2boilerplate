@@ -19,15 +19,15 @@ var config = {
         publicPath: '/build/'
     },
     module: {
-        loaders: [],
+        rules: [],
     },
     plugins: []
 }
 
 // Javascript
-config.babel = {
+const babelConfig = {
     presets: [
-        ['es2015']
+        ['es2015', { modules: false }]
     ],
     plugins: [
         'transform-vue-jsx',
@@ -35,58 +35,80 @@ config.babel = {
     ]
 }
 config.resolve = {
-    extensions: ['', '.js', '.vue']
+    extensions: ['.js', '.vue']
 }
-config.module.loaders.push({
+config.module.rules.push({
     test: /\.vue$/,
-    loader: 'vue',
-    include: __dirname + '/src'
+    loader: 'vue-loader',
+    include: __dirname + '/src',
 })
-config.module.loaders.push({
+config.module.rules.push({
     test: /\.js$/,
-    loader: 'babel',
+    loader: 'babel-loader',
     include: __dirname + '/src'
 })
 
 // Styles
-config.postcss = [
-    autoprefixer(),
-]
-config.vue = {
-    postcss: config.postcss
-}
+var styleLoaders = [{
+    loader:'css-loader',
+        // sourceMap: true
+}, {
+    loader: 'postcss-loader',
+ }, {
+      loader: 'sass-loader'
+      // sourceMap: true
+}]
 // Postprocces the scss files with postcss
-var styleLoaders = ['css?sourceMap', 'postcss', 'sass?sourceMap']
+const postcssConfig = [
+    autoprefixer()
+]
+
 if (IS_PRODUCTION) {
     // Extract css intro a style.css file
     var extractCss = new ExtractTextPlugin('style.css')
     config.plugins.push(extractCss)
-    config.module.loaders.push({
+    config.module.rules.push({
         test: /\.scss$/,
         include: __dirname + '/src',
-        loader: extractCss.extract('style', styleLoaders)
+        loader: extractCss.extract(styleLoaders)
     })
 
-    config.module.loaders.push({
+    config.module.rules.push({
         test: /\.css$/,
         exclude: __dirname + '/src',
-        loader: extractCss.extract('style', ['css'])
+        loader: extractCss.extract(['css-loader'])
     })
 } else {
-    config.module.loaders.push({
+    config.module.rules.push({
         test: /\.scss$/,
         include: __dirname + '/src',
-        loaders: ['style'].concat(styleLoaders)
+        loaders: ['style-loader'].concat(styleLoaders)
     })
-    config.module.loaders.push({
+    config.module.rules.push({
         test: /\.css$/,
         exclude: __dirname + '/src',
-        loaders: ['style', 'css']
+        loaders: ['style-loader', 'css-loader']
     })
 }
-config.module.loaders.push({
+config.plugins.push(
+    new webpack.LoaderOptionsPlugin({
+        minimize: IS_PRODUCTION,
+        options: {
+            context: __dirname,
+            postcss: postcssConfig,
+            babel: babelConfig,
+            vue: {
+                postcss: postcssConfig,
+                loaders: {
+                    js: 'babel-loader'
+                }
+            }
+        }
+    })
+)
+config.module.rules.push({
     test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$/, // css resources
-    loader: IS_PRODUCTION ? 'file' : 'url'
+    loader: IS_PRODUCTION ? 'file-loader' : 'url-loader'
 })
 
 // Webpack Dev Server
