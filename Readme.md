@@ -1,5 +1,10 @@
-Vue2 Boilerplate
-----------------
+UNMAINTAINED
+----
+
+Deprecated in favor of: https://github.com/noprotocol/np-vue
+
+## Vue2 Boilerplate
+
 
 [![Build Status](https://travis-ci.org/noprotocol/vue2boilerplate.svg)](https://travis-ci.org/noprotocol/vue2boilerplate)
 
